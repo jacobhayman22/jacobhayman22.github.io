@@ -1,0 +1,29 @@
+ 
+ 
+  /*body { */
+    /*    background-color: black;*/
+    /*    font-size: 10px;*/
+    /*        }*/
+    /*        a {*/
+    /*            font-size: 3em;*/
+    /*        }*/
+            
+    /*        a:link, a:visited {*/
+    /*            color: white;*/
+    /*        }*/
+ body {
+      background-color:black;
+      list-style: none;
+      font-size:10px;
+ }
+  a {
+   color: white;
+   font-size: 3em;
+   text-decoration: none;
+  }
+  
+   li {
+    display: inline;
+    padding-right: S0px;
+    margin-right: 25px;
+   }
