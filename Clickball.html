@@ -9,15 +9,91 @@
   </head>
   
   <body>
-    <h1>PUT YOUR TITLE HERE</h1>
-    <p>ADD DESCRIPTION HERE</p>
+    <h1>Clickball</h1>
+    <p>My first game</p>
     
     <script type="text/processing">
     
-      /* DELETE THIS COIMMENT PORTION AND REPLACE WITH PROCESSING CODE
-       * 
-       * CODE GOES HERE......
-       */
+    //DECLARE VARIABLES
+int gameState;
+int X ; //Ball x
+int Y ; //Ball y
+int Vx; //Velocity of ball in X direction
+int Vy; //Velocity of ball in Y direction
+int score;
+int highScore;
+PImage img;
+int speed;
+float x=600;
+float y=300;
+float xspeed = 5;
+float yspeed = 5;
+
+
+
+//SETUP
+void setup() {
+ size(600,800);
+ gameState=0;
+ speed=5;
+}
+
+//MAIN
+void draw() {
+ background(0); //black background
+ if(gameState==0) {
+  startScreen(); 
+ }
+ else if(gameState==1){
+  checkWalls(); 
+ }
+}
+
+void startScreen() {
+  textSize(44);
+  fill(255); // White
+  text("Hello", 40, 100);
+  
+  if(mouseX>95 && mouseX<395 && mouseY>265 && mouseY<310){
+    fill(0,255,0);
+    if(mousePressed){
+      gameState=1;
+    }
+   
+  }
+  else {
+    fill(255, 0, 0);
+  }
+  
+  
+  
+  rect(95, 310, 300, 55, 15);
+  fill(255, 155, 0); //Red
+  fill(19, 247, 8);
+  text("Welcome to Clickball", 100, 200);
+  fill(8, 171, 247);
+  text("Click to start!", 100, 300); 
+ 
+}
+
+void checkWalls() {
+background(0);
+   
+   x += xspeed;
+   if (x > width || x < 0) {
+     xspeed *= -1;
+   }
+
+y += yspeed;
+if (y > height || y< 0) {
+  yspeed *= -1;
+}
+
+
+ 
+    ellipse(x, y, 50, 50);
+   fill(255, 255, 255);
+}
        
        ellipse(20,20,10, 20)  //TEST THIS FIRST THEN DELETE
     
