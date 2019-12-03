@@ -1,0 +1,19 @@
+PImage bg;
+
+void setup()
+{
+  size(600,800);
+  bg = loadImage("./img/bg.png");
+}
+
+void draw()
+{
+  image(bg, bgx, bgy);
+  image(bg, bgx + bg.width, bgy);
+  bgx = bgx - 1;
+  if(bgx < -bg.width)
+  {
+    bgx = 0; //Resets after first image
+  }
+  
+}
