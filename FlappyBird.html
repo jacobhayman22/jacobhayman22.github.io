@@ -1,16 +1,34 @@
-PImage bg;
-
+PImage bg, angrybird;
+int bgx, bgy, ax, ay, g, Vay;
 void setup()
 {
-  size(600,800);
+  size(800,400);
   bg = loadImage("./img/bg.png");
+  angrybird = loadImage("./img/angrybird.png");
+  ax = 100;
+  ay = 50;
+  g = 1; //Gravity == speed of downward acceleration
 }
-
+//Main Game Loop
 void draw()
 {
+  setBg();
+  image(angrybird, ax, ay);
+  ay = ay + Vay;
+  Vay = Vay + g;
+}
+
+void mouseClicked()
+{
+ Vay = -15; 
+}
+  
+  void setBg()
+  
+    {
   image(bg, bgx, bgy);
   image(bg, bgx + bg.width, bgy);
-  bgx = bgx - 1;
+  bgx = bgx - 4;
   if(bgx < -bg.width)
   {
     bgx = 0; //Resets after first image
