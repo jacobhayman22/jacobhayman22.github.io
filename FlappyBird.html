@@ -1,37 +1,52 @@
-PImage bg, angrybird;
-int bgx, bgy, ax, ay, g, Vay;
-void setup()
-{
-  size(800,400);
-  bg = loadImage("./img/bg.png");
-  angrybird = loadImage("./img/angrybird.png");
-  ax = 100;
-  ay = 50;
-  g = 1; //Gravity == speed of downward acceleration
-}
-//Main Game Loop
-void draw()
-{
-  setBg();
-  image(angrybird, ax, ay);
-  ay = ay + Vay;
-  Vay = Vay + g;
-}
+<!Doctype: HTML w/ Processing>
 
-void mouseClicked()
-{
- Vay = -15; 
-}
+<html>
+
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title></title>
+      <script type="text/javascript" src="/processing.js"></script>
+  </head>
   
-  void setBg()
+  <body>
+    <script type="text/processing"> 
+      PImage bg, angrybird;
+      int bgx, bgy, ax, ay, g, Vay;
+      void setup()
+      {
+        size(800,400);
+        bg = loadImage("/styles/img/bg.png");
+        //angrybird = loadImage("/styles/img/xbox.PNG");
+        ax = 100;
+        ay = 50;
+        g = 1; //Gravity == speed of downward acceleration
+      }
+//Main Game Loop
+      void draw()
+      {
+        setBg();
+        //image(angrybird, ax, ay);
+        ay = ay + Vay;
+        Vay = Vay + g;
+      }
+
+      void mouseClicked()
+      {
+       Vay = -15; 
+      }
   
-    {
-  image(bg, bgx, bgy);
-  image(bg, bgx + bg.width, bgy);
-  bgx = bgx - 4;
-  if(bgx < -bg.width)
-  {
-    bgx = 0; //Resets after first image
-  }
-  
-}
+      void setBg()
+      {
+        image(bg, bgx, bgy);
+        image(bg, bgx + bg.width, bgy);
+        bgx = bgx - 4;
+        if(bgx < -bg.width)
+        {
+          bgx = 0; //Resets after first image
+        }
+      }
+//Put your Processing Code here!
+    </script>
+    <canvas id="sketch" style="border: 1px solid black;"></canvas>
+  </body>
+</html>
