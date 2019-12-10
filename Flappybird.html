@@ -1,0 +1,55 @@
+PImage bg, angrybird, topPipe, botPipe;
+int bgx, bgy, ax, ay, g, Vay;
+int[] pipeX, pipeY; //Declare two arrays
+
+//One time
+void setup()
+{
+  size(800,400);
+  bg = loadImage("./img/bg.png");
+  angrybird = loadImage("./img/angrybird.png");
+  botPipe = loadImage("./img/botPipe.png");
+  topPipe = loadImage("./img/topPipe.png");
+  ax = 100;
+  ay = 50;
+  g = 1; //Gravity == speed of downward acceleration
+  pipeX = new int[6]; //[0,0,0,0]
+  pipeY = new int[pipeX.length];
+  //populate the array with values
+  for(int i = 0; i < pipeX.length; i++)
+  {
+   pipeX[i] = 200*i;
+   pipeY[i] = (int) random(-350, 0);
+  }
+}
+//Main Game Loop
+void draw()
+{
+  setBg();
+  angrybird();
+  image(topPipe, 0, 300);
+  image(botPipe, 0, -50);
+}
+void angrybird()
+{
+   image(angrybird, ax, ay);
+  ay = ay + Vay;
+  Vay = Vay + g;
+}
+void mousePressed()
+{
+ Vay = -15; 
+}
+  
+  void setBg()
+  
+    {
+  image(bg, bgx, bgy);
+  image(bg, bgx + bg.width, bgy);
+  bgx = bgx - 4;
+  if(bgx < -bg.width)
+  {
+    bgx = 0; //Resets after first image
+  }
+  
+}
